@@ -122,7 +122,7 @@ class AlumnoController extends Controller
             'data' => $alumnos
         ], 200);
 
-        $data = $alumnos->where('calificacion_prepa' >= 6);
+        $data = $alumnos->where("calificacion_prepa", ">=", "7");
 
         return response()-json([
             'genero'=>count($data)
@@ -137,7 +137,7 @@ class AlumnoController extends Controller
             'data' => $alumnos
         ], 200);
 
-        $data = $alumnos->where('calificacion_prepa' <= 6);
+        $data = $alumnos->where("calificacion_prepa", "<=", "6");
 
         return response()-json([
             'genero'=>count($data)
@@ -181,11 +181,11 @@ class AlumnoController extends Controller
             'edad' => 'required|string',
             'genero' => 'required',
             'carrera' => 'nullable',
-            'ednia_indigena' => 'required|string',
-            'horario' => 'required|string',
-            'calificacion_prepa' => 'required|integer',
-            'becado' => 'required|string',
-            'problemas_de_salud' => 'required|string',
+            'ednia_indigena' => 'string',
+            'horario' => 'string',
+            'calificacion_prepa' => 'string',
+            'becado' => 'string',
+            'problemas_de_salud' => 'string',
         ]);
     }
 }
