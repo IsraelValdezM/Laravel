@@ -27,10 +27,6 @@ class AlumnoController extends Controller
     public function alumnosMasculinos()
     {
         $alumnos = Alumno::all();
-        return response()->json([
-            'total_data' => count($alumnos),
-            'data' => $alumnos
-        ], 200);
 
         $data = $alumnos->where('genero', 'masculino');
 
@@ -49,14 +45,6 @@ class AlumnoController extends Controller
 
         $data = $alumnos->where('genero', 'femenino');
 
-        return response()-json([
-            'genero'=>count($data)
-        ]);
-    }
-
-    public function alumnosBecados()
-    {
-        $alumnos = Alumno::all();
         return response()->json([
             'total_data' => count($alumnos),
             'data' => $alumnos
